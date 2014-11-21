@@ -98,6 +98,9 @@ namespace Assemblies.Champions {
 
             menu.AddSubMenu(new Menu("Misc Options", "misc"));
             menu.SubMenu("misc").AddItem(new MenuItem("eStacks", "Cast E on stacks").SetValue(new Slider(2, 1, 10)));
+            
+            Config.AddSubMenu(new Menu("R", "R"));
+            Config.SubMenu("R").AddItem(new MenuItem("MoveToMouse", "Move to mouse (Exploit)").SetValue(false));
         }
 
         private void onUpdate(EventArgs args) {
@@ -170,4 +173,5 @@ namespace Assemblies.Champions {
             }
         }
     }
+    if (Config.Item("MoveToMouse").GetValue<bool>()) { var p = ObjectManager.Player.Position.To2D().Extend(Game.CursorPos.To2D(), 500); ObjectManager.Player.IssueOrder(GameObjectOrder.MoveTo, p.To3D()); } return;
 }
