@@ -23,7 +23,7 @@ namespace Assemblies.Champions {
             Auto cast ultimate on gapclosers(on/off toggle xD).
          *  W Spots thats show Sentinel routes.
             Q to dodge skillshots(Ashe ulted me, evades movepackets and auto Q saved me) I know this takes time but quite a good feature.
-         * 
+         * Config.SubMenu("R").AddItem(new MenuItem("MoveToMouse", "Move to mouse (Exploit)").SetValue(false));
          */
 
         public Kalista() {
@@ -98,9 +98,8 @@ namespace Assemblies.Champions {
 
             menu.AddSubMenu(new Menu("Misc Options", "misc"));
             menu.SubMenu("misc").AddItem(new MenuItem("eStacks", "Cast E on stacks").SetValue(new Slider(2, 1, 10)));
+            menu.SubMenu("R").AddItem(new MenuItem("MoveToMouse", "Move to mouse (Exploit)").SetValue(false));
             
-            Config.AddSubMenu(new Menu("R", "R"));
-            Config.SubMenu("R").AddItem(new MenuItem("MoveToMouse", "Move to mouse (Exploit)").SetValue(false));
         }
 
         private void onUpdate(EventArgs args) {
